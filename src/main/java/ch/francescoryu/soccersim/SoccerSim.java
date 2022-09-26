@@ -2,23 +2,50 @@ package ch.francescoryu.soccersim;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.Label;
+import javafx.scene.layout.*;
+import javafx.scene.shape.Box;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+/**
+ * @author Francesco Ryu
+ * @date 26.09.2022 (European Date Format)
+ * @version 0.1
+ */
 
 public class SoccerSim extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         BorderPane borderPane = new BorderPane();
-        Scene scene = new Scene(borderPane);
-        stage.setTitle("HAPIN");
-        stage.setScene(scene);
-        stage.setMaximized(true);
-        stage.show();
-    }
+        borderPane.setStyle("-fx-background-color: linear-gradient(to bottom, #ffaf3d, #7b00ff);");
 
-    public static void main(String[] args) {
-        launch();
+        Label welcomeLabel = new Label("SoccerSim");
+        welcomeLabel.setStyle("-fx-font-size: 40; -fx-font-family: 'Times New Roman'");
+
+
+
+        GridPane gridPane = new GridPane();
+
+        VBox buttonBox = new VBox(gridPane);
+        buttonBox.setStyle("-fx-border-color: black");
+        borderPane.setLeft(buttonBox);
+
+        HBox welcomeLabelBox = new HBox();
+        welcomeLabelBox.setStyle("-fx-alignment: center; -fx-border-color: black");
+        welcomeLabelBox.getChildren().addAll(welcomeLabel);
+        borderPane.setTop(welcomeLabelBox);
+
+        VBox team1Box = new VBox();
+
+        HBox centerBox = new HBox();
+        centerBox.setStyle("-fx-border-color: black; -fx-border-insets: 100");
+        centerBox.getChildren().add(team1Box);
+        borderPane.setCenter(centerBox);
+
+        Scene scene = new Scene(borderPane, 700, 500);
+        stage.setTitle("SoccerSim");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
 }
