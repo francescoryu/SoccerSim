@@ -1,10 +1,14 @@
 package ch.francescoryu.soccersim.methods;
 
+import javafx.animation.AnimationTimer;
+import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+
+import java.util.Timer;
 
 public class MenuMethods {
     public void setButtonStyle(Button button) {
@@ -23,28 +27,14 @@ public class MenuMethods {
         textField2.setText("");
     }
 
-    public void gameTimer(Label label, Button button) {
-
-    }
-
-    public void startGame(BorderPane borderPane) {
-        Button button = new Button("start");
+    public void startGame(BorderPane borderPane) throws InterruptedException {
+        Button button = new Button("TEST");
         Label label = new Label();
 
-        button.setOnAction(e -> new Thread(() -> {
-            for (int i = 0; i < 91; i++) {
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-                label.setText(i + " Mins Played");
-                System.out.println(i);
-            }
-        }));
 
-        HBox timeBox = new HBox();
-        timeBox.getChildren().addAll(button, label);
-        borderPane.setTop(timeBox);
+
+        HBox displayBox = new HBox();
+        displayBox.getChildren().addAll(button, label);
+        borderPane.setTop(displayBox);
     }
 }

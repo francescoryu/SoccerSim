@@ -106,7 +106,11 @@ public class SoccerSim extends Application {
             team1Box.setVisible(false);
             team2Box.setVisible(false);
 
-            menuMethods.startGame(centerPane);
+            try {
+                menuMethods.startGame(centerPane);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
 
         });
     }
