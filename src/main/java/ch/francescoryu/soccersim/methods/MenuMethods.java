@@ -3,6 +3,8 @@ package ch.francescoryu.soccersim.methods;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 
 public class MenuMethods {
     public void setButtonStyle(Button button) {
@@ -21,15 +23,28 @@ public class MenuMethods {
         textField2.setText("");
     }
 
-    public void gameTimer(Label label) {
-        Thread thread = new Thread();
-        for (int i = 0; i < 91; i++) {
-            try {
-                thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
+    public void gameTimer(Label label, Button button) {
+
+    }
+
+    public void startGame(BorderPane borderPane) {
+        Button button = new Button("start");
+        Label label = new Label();
+
+        button.setOnAction(e -> new Thread(() -> {
+            for (int i = 0; i < 91; i++) {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+                label.setText(i + " Mins Played");
+                System.out.println(i);
             }
-            label.setText(i + " Mins played");
-        }
+        }));
+
+        HBox timeBox = new HBox();
+        timeBox.getChildren().addAll(button, label);
+        borderPane.setTop(timeBox);
     }
 }

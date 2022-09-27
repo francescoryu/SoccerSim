@@ -103,7 +103,10 @@ public class SoccerSim extends Application {
         stage.show();
 
         startButton.setOnAction(actionEvent ->  {
-            centerPane.setVisible(false);
+            team1Box.setVisible(false);
+            team2Box.setVisible(false);
+
+            menuMethods.startGame(centerPane);
 
         });
     }
