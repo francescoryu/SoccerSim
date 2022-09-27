@@ -9,6 +9,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
 import java.util.Timer;
+import java.util.concurrent.TimeUnit;
 
 public class MenuMethods {
     public void setButtonStyle(Button button) {
@@ -31,6 +32,10 @@ public class MenuMethods {
         Button button = new Button("TEST");
         Label label = new Label();
 
+
+        for (int i = 0; i < 91; i++) {
+
+        }
 
 
         HBox displayBox = new HBox();
