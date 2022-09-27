@@ -33,10 +33,16 @@ public class MenuMethods {
         Label label = new Label();
 
 
-        for (int i = 0; i < 91; i++) {
-
-        }
-
+        button.setOnAction(actionEvent -> {
+            for (int i = 0; i < 91; i++) {
+                label.setText(i + " ");
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
 
         HBox displayBox = new HBox();
         displayBox.getChildren().addAll(button, label);
